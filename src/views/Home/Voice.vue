@@ -30,7 +30,7 @@
 
             <div class="mt-6">
                 <div class="text-center text-h5" v-text="$t('home.voice.alsoAvailable')"></div>
-                <div class="d-flex align-center justify-center mt-4" style="gap: 1rem">
+                <div class="d-flex align-center justify-center mt-4 flex-wrap" style="gap: 1rem">
                     <v-chip :key="locale.value" v-for="locale in availableLocales" :disabled="playing" v-text="locale.text" @click="() => handleSwitchLanguageClick(locale)"></v-chip>
                 </div>
             </div>
@@ -182,10 +182,10 @@ export default Vue.extend({
             this.forcedLocale = locale.value;
 
             this.stop();
+            this.playing = true;
             setTimeout(() => {
                 this.audio.play();
-                this.playing = true;
-            }, 1000)
+            }, 250);
         },
 
         toggle() {
@@ -219,6 +219,7 @@ export default Vue.extend({
                     this.playing = true;
                 },
                 onEnded: () => {
+                    this.forcedLocale = false;
                     this.playing = false;
                     this.toggle();
                     setTimeout(() => {
