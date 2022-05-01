@@ -3,7 +3,7 @@
         <v-icon v-if="icon" v-text="icon" :left="!$vuetify.rtl" :right="$vuetify.rtl"></v-icon>
         <span v-text="body" class="mr-4"></span>
 
-        <template #action="{ attrs }">
+        <template #action>
             <v-btn icon @click="visible = false">
                 <v-icon>mdi-close</v-icon>
             </v-btn>
