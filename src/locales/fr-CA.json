@@ -1,0 +1,8 @@
+{
+	"footer.allRights": "Sous licence BSD-3-Clause.",
+	"footer.copyright": "Polymind v{version}.",
+	"home.hero.body": "Polymind est une application Web qui vous aide à mémoriser de grandes listes d'informations que vous pouvez écouter sans avoir à vous concentrer sur votre écran.",
+	"home.hero.title": "Générez des sessions audio à partir de vos flashcards et notes",
+	"route.home": "Polymind - Flashcards auditives",
+	"toolbar.openClient": "Ouvrir l'application"
+}

@@ -1,0 +1,54 @@
+img, video {max-width: 100%;}
+.w-100 {width: 100%;}
+.position-relative {position: relative;}
+
+html, body { overflow-x: hidden; }
+
+.v-application {
+    h1,h2,h3,h4,h5,h6,
+    .display-1, .display-2, .display-3,
+    .text-h1,.text-h2,.text-h3,.text-h4,.text-h5,.text-h6,
+    .text-md-h1,.text-md-h2,.text-md-h3,.text-md-h4,.text-md-h5,.text-md-h6,
+    .title,
+    .v-btn,
+    .v-tab {
+        font-family: Geomanist !important;
+    }
+}
+.v-btn__content span {
+    margin-top: 0.15rem;
+}
+
+@font-face {
+    font-family: 'Geomanist';
+    src: url('./assets/fonts/Geomanist.woff2') format('woff2'),
+    url('./assets/fonts/Geomanist.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1 {
+    hyphens: manual;
+}
+.no-select {
+    user-select: none;
+}
+ul + p {
+    margin-top: 16px;
+}
+
+::selection {
+    background: #1B8E8A; /* WebKit/Blink Browsers */
+    color: white;
+}
+::-moz-selection {
+    background: #1B8E8A; /* Gecko Browsers */
+    color: white;
+}
+@media all and (max-width: 767px) {
+    .v-tooltip__content {
+        display: none !important;
+    }
+}
+
