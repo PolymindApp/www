@@ -1,4 +1,6 @@
 {
+	"btn.close": "قريب",
+	"error.defaultTitle": "خطأ عام",
 	"footer.allRights": "مرخصة بموجب بند BSD-3.",
 	"footer.copyright": "بوليمايند ضد{version}.",
 	"home.hero.body": "Polymind هو تطبيق ويب يساعدك على حفظ قوائم كبيرة من المعلومات التي يمكنك الاستماع إليها دون الحاجة إلى التركيز على شاشتك.",
@@ -23,6 +25,7 @@
 	"home.useCases.law.body": "تعرف على الدساتير والميثاق الأمريكي للحقوق والقانون المدني في متناول يدك.",
 	"home.useCases.law.title": "القوانين",
 	"home.useCases.title": "Polymind هو أيضًا رفيق ممتاز في المدرسة:",
+	"home.voice.alsoAvailable": "Polymind متاح أيضًا باللغات التالية:",
 	"home.voice.title": "سيقرأ الصوت المركب المصمم بشكل جميل جميع البطاقات التعليمية الخاصة بك",
 	"home.wherever.title": "أينما كنت ، يمكن أن تكون بولي مايند!",
 	"route.home": "Polymind - البطاقات التعليمية السمعية",

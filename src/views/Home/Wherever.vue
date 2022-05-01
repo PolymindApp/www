@@ -12,40 +12,6 @@
 
 <script>
 export default {
-    name: "Wherever",
 
-    props: {
-        value: {
-            type: String,
-            default: null,
-        },
-        skeleton: {
-            type: Boolean,
-            default: false,
-        },
-    },
-
-    data: () => ({}),
-
-    computed: {
-        _value: {
-            get() {
-                return this.value;
-            },
-            set(value) {
-                this.$emit('input', value);
-            },
-        },
-    },
-
-    methods: {
-        init() {
-            console.log('Wherever');
-        },
-    },
-
-    created() {
-        this.init();
-    },
 }
 </script>

@@ -27,6 +27,13 @@
                     <div v-for="i in 100" :key="i"></div>
                 </div>
             </div>
+
+            <div class="mt-6">
+                <div class="text-center text-h5" v-text="$t('home.voice.alsoAvailable')"></div>
+                <div class="d-flex align-center justify-center mt-4" style="gap: 1rem">
+                    <v-chip :key="locale.value" v-for="locale in availableLocales" :disabled="playing" v-text="locale.text" @click="() => handleSwitchLanguageClick(locale)"></v-chip>
+                </div>
+            </div>
         </v-container>
     </v-sheet>
 </template>
@@ -42,6 +49,7 @@ import hiInVoice from '@/assets/voices/hi-IN.mp3';
 import ptPtVoice from '@/assets/voices/pt-PT.mp3';
 import ruRuVoice from '@/assets/voices/ru-RU.mp3';
 import zhCnVoice from '@/assets/voices/zh-CN.mp3';
+import languages from "@/assets/languages.json";
 
 const Muvis = function (path, options = {}) {
 
@@ -152,7 +160,9 @@ export default Vue.extend({
         playing: false,
         audio: null,
         divs: null,
-        voices: {}
+        voices: {},
+        availableLocales: [],
+        forcedLocale: null,
     }),
 
     computed: {
@@ -168,6 +178,16 @@ export default Vue.extend({
     },
 
     methods: {
+        handleSwitchLanguageClick(locale) {
+            this.forcedLocale = locale.value;
+
+            this.stop();
+            setTimeout(() => {
+                this.audio.play();
+                this.playing = true;
+            }, 1000)
+        },
+
         toggle() {
             if (!this.audio.isPlaying) {
                 this.audio.play();
@@ -192,14 +212,14 @@ export default Vue.extend({
                 this.apply(data);
             }
 
-            this.audio = new Muvis(this.voices[this.$i18n.locale], {
+            this.audio = new Muvis(this.voices[this.forcedLocale || this.$i18n.locale], {
                 dataMax: 100,
                 onData: this.apply,
                 onPlay: () => {
                     this.playing = true;
                 },
                 onEnded: () => {
-                    this.playing =  false;
+                    this.playing = false;
                     this.toggle();
                     setTimeout(() => {
                         this.toggle();
@@ -233,8 +253,14 @@ export default Vue.extend({
         this.voices['ru-RU'] = ruRuVoice;
         this.voices['zh-CN'] = zhCnVoice;
 
+        // Unsupported voices
         this.voices['bn-IN'] = enCaVoice;
         this.voices['ur-PK'] = enCaVoice;
+
+        this.availableLocales = this.$i18n.availableLocales.map(lang => ({
+            value: lang,
+            text: (languages.find(item => item.code === lang.replace('_', '-')) || { native: lang }).native,
+        })).filter(item => ['bn-IN', 'ur-PK'].indexOf(item.value) === -1);
     },
 
     mounted() {

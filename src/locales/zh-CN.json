@@ -1,4 +1,6 @@
 {
+	"btn.close": "关",
+	"error.defaultTitle": "一般错误",
 	"footer.allRights": "根据 BSD-3 条款获得许可。",
 	"footer.copyright": "多脑 v{version}。",
 	"home.hero.body": "Polymind 是一款网络应用程序，可帮助您记住大量信息，无需专注于屏幕即可收听。",
@@ -23,6 +25,7 @@
 	"home.useCases.law.body": "触手可及地了解宪法、美国权利宪章和民法。",
 	"home.useCases.law.title": "法律",
 	"home.useCases.title": "Polymind 也是一个优秀的学校伙伴：",
+	"home.voice.alsoAvailable": "Polymind 还提供以下语言：",
 	"home.voice.title": "精心制作的合成声音将读取您所有的抽认卡",
 	"home.wherever.title": "无论您身在何处，Polymind 都可以！",
 	"route.home": "Polymind - 听觉抽认卡",

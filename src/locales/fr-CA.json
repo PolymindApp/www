@@ -1,4 +1,6 @@
 {
+	"btn.close": "Fermer",
+	"error.defaultTitle": "Erreur générale",
 	"footer.allRights": "Sous licence BSD-3-Clause.",
 	"footer.copyright": "Polymind v{version}.",
 	"home.hero.body": "Polymind est une application Web qui vous aide à mémoriser de grandes listes d'informations que vous pouvez écouter sans avoir à vous concentrer sur votre écran.",
@@ -23,6 +25,7 @@
 	"home.useCases.law.body": "Connaître les constitutions, la charte américaine des droits et le droit civil à portée de main.",
 	"home.useCases.law.title": "Lois",
 	"home.useCases.title": "Polymind est également un excellent compagnon scolaire :",
+	"home.voice.alsoAvailable": "Polymind est également disponible dans les langues suivantes :",
 	"home.voice.title": "Une voix synthétisée magnifiquement conçue lira toutes vos cartes mémoire",
 	"home.wherever.title": "Où que vous soyez, Polymind peut être !",
 	"route.home": "Polymind - Flashcards auditives",
