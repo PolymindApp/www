@@ -232,6 +232,9 @@ export default Vue.extend({
         this.voices['pt-PT'] = ptPtVoice;
         this.voices['ru-RU'] = ruRuVoice;
         this.voices['zh-CN'] = zhCnVoice;
+
+        this.voices['bn-IN'] = enCaVoice;
+        this.voices['ur-PK'] = enCaVoice;
     },
 
     mounted() {
