@@ -1,5 +1,5 @@
 <template>
-    <v-sheet class="fill-height" v-bind="$attrs" v-on="$listeners">
+    <v-sheet style="min-height: 100vh" v-bind="$attrs" v-on="$listeners">
         <slot></slot>
     </v-sheet>
 </template>
