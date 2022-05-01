@@ -34,8 +34,14 @@
 <script>
 import Vue from 'vue';
 import * as d3 from 'd3';
+import arEgVoice from '@/assets/voices/ar-EG.mp3';
 import enCaVoice from '@/assets/voices/en-CA.mp3';
+import esMxVoice from '@/assets/voices/es-MX.mp3';
 import frCaVoice from '@/assets/voices/fr-CA.mp3';
+import hiInVoice from '@/assets/voices/hi-IN.mp3';
+import ptPtVoice from '@/assets/voices/pt-PT.mp3';
+import ruRuVoice from '@/assets/voices/ru-RU.mp3';
+import zhCnVoice from '@/assets/voices/zh-CN.mp3';
 
 const Muvis = function (path, options = {}) {
 
@@ -218,8 +224,14 @@ export default Vue.extend({
     },
 
     created() {
+        this.voices['ar-EG'] = arEgVoice;
         this.voices['en-CA'] = enCaVoice;
+        this.voices['es-MX'] = esMxVoice;
         this.voices['fr-CA'] = frCaVoice;
+        this.voices['hi-IN'] = hiInVoice;
+        this.voices['pt-PT'] = ptPtVoice;
+        this.voices['ru-RU'] = ruRuVoice;
+        this.voices['zh-CN'] = zhCnVoice;
     },
 
     mounted() {
