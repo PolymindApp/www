@@ -7,8 +7,8 @@
 	"home.hero.title": "Générez des sessions audio à partir de vos flashcards et notes",
 	"home.situations.driving": "...en conduisant",
 	"home.situations.hiking": "...en randonnée",
-	"home.situations.relaxing": "...en vous relaxant",
-	"home.situations.sleeping": "...lorsque vous dormez",
+	"home.situations.relaxing": "...en relaxant",
+	"home.situations.sleeping": "...en dormant",
 	"home.situations.title": "Écoutez Polymind",
 	"home.situations.walking": "...en marchant",
 	"home.situations.working": "...en travaillant",
@@ -27,7 +27,7 @@
 	"home.useCases.title": "Polymind est également un excellent compagnon scolaire :",
 	"home.voice.alsoAvailable": "Polymind est également disponible dans les langues suivantes :",
 	"home.voice.title": "Une voix synthétisée magnifiquement conçue lira toutes vos cartes mémoire",
-	"home.wherever.title": "Où que vous soyez, Polymind peut être !",
+	"home.wherever.title": "Où que vous soyez, Polymind y est !",
 	"route.home": "Polymind - Flashcards auditives",
 	"toolbar.openClient": "Ouvrir l'application"
 }
