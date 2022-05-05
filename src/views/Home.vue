@@ -19,9 +19,9 @@
 
         <Footer
             :social-links="$root.socialLinks"
-            color="transparent"
+            :absolute="$vuetify.breakpoint.mdAndUp"
+            color="primary"
             dark
-            absolute
         />
     </v-sheet>
 </template>
