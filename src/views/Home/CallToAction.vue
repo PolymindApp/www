@@ -11,7 +11,7 @@
             <br>
             <v-btn class="mt-8" :href="githubHref" target="_blank" text>
                 <v-icon left>mdi-github</v-icon>
-                <span class="text-capitalize" v-text="$t('home.callToAction.wereOnGitHub')"></span>
+                <span class="text-none" v-text="$t('home.callToAction.wereOnGitHub')"></span>
             </v-btn>
         </v-container>
     </v-sheet>
