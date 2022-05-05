@@ -39,6 +39,7 @@ export default  {
             return {
                 zIndex: 1,
                 maxHeight: '70vh',
+                minHeight: '20rem',
                 pointerEvents: 'none',
                 width: '100%',
                 maxWidth: this.$vuetify.breakpoint.mdAndUp

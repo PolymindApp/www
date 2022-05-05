@@ -36,10 +36,6 @@
         <v-main>
             <router-view :key="$route.path" />
         </v-main>
-
-        <Footer
-            :social-links="$root.socialLinks"
-        />
     </v-app>
 </template>
 
@@ -47,7 +43,6 @@
 import Vue from 'vue';
 // import Sidebar from "@/components/layout/Sidebar";
 import Toolbar from "@/components/layout/Toolbar";
-import Footer from "@/components/layout/Footer";
 import ErrorHandler from "@/components/generic/ErrorHandler";
 import GlobalModal from "@/components/generic/Modal";
 import Snack from "@/components/generic/Snack";
@@ -59,7 +54,7 @@ let languageSwitchBus;
 export default Vue.extend({
     name: 'App',
 
-    components: { Toolbar, Footer, ErrorHandler, GlobalModal, Snack },
+    components: { Toolbar, ErrorHandler, GlobalModal, Snack },
 
     data: () => ({
         loading: true,

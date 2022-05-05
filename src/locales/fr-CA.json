@@ -3,8 +3,12 @@
 	"error.defaultTitle": "Erreur générale",
 	"footer.allRights": "Sous licence BSD-3-Clause.",
 	"footer.copyright": "Polymind v{version}.",
+	"home.callToAction.body": "En dehors de cela, c'est gratuit, open-source, nous ne vous suivons pas, nous ne prenons pas vos données en otage et ne le ferons jamais.",
+	"home.callToAction.openAccount": "Ouvrir un compte",
+	"home.callToAction.title": "Donc, c'est ça !",
+	"home.callToAction.wereOnGitHub": "Nous sommes sur GitHub !",
 	"home.hero.body": "Polymind est une application Web qui vous aide à mémoriser de grandes listes d'informations que vous pouvez écouter sans avoir à vous concentrer sur votre écran.",
-	"home.hero.title": "Générez des sessions audio à partir de vos flashcards et notes",
+	"home.hero.title": "Générez des sessions audio à partir de vos cartes mémoires et notes",
 	"home.situations.driving": "...en conduisant",
 	"home.situations.hiking": "...en randonnée",
 	"home.situations.relaxing": "...en relaxant",
@@ -28,6 +32,6 @@
 	"home.voice.alsoAvailable": "Polymind est également disponible dans les langues suivantes :",
 	"home.voice.title": "Une voix synthétisée magnifiquement conçue lira toutes vos cartes mémoire",
 	"home.wherever.title": "Où que vous soyez, Polymind y est !",
-	"route.home": "Polymind - Flashcards auditives",
+	"route.home": "Polymind - Cartes mémoires auditives",
 	"toolbar.openClient": "Ouvrir l'application"
 }

@@ -11,7 +11,7 @@
             <v-row>
                 <v-col :key="situation.key" v-for="situation in situations" cols="12" md="6">
                     <v-card dark>
-                        <v-img class="rounded-bottom" :src="situation.thumbnail" />
+                        <v-img class="rounded-bottom" :aspect-ratio="1.6" :src="situation.thumbnail" />
                         <v-card-actions class="primary justify-center align-center">
                             <span class="text-h6 text-md-h5" v-text="$t('home.situations.' + situation.key)"></span>
                         </v-card-actions>
