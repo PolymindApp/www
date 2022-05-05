@@ -34,7 +34,7 @@ import Situations from '@/views/Home/Situations.vue';
 import Wherever from '@/views/Home/Wherever.vue';
 import UseCases from '@/views/Home/UseCases.vue';
 import CallToAction from '@/views/Home/CallToAction.vue';
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/layout/Footer.vue";
 import {Component, Vue} from 'vue-property-decorator';
 
 @Component({

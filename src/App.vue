@@ -41,13 +41,13 @@
 
 <script>
 import Vue from 'vue';
-// import Sidebar from "@/components/layout/Sidebar";
 import Toolbar from "@/components/layout/Toolbar";
 import ErrorHandler from "@/components/generic/ErrorHandler";
 import GlobalModal from "@/components/generic/Modal";
 import Snack from "@/components/generic/Snack";
 import EventBus from "@/utils/EventBus";
 import { rtlLanguages } from "@/locales";
+// import Sidebar from "@/components/layout/Sidebar";
 
 let languageSwitchBus;
 
