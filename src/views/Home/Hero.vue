@@ -8,9 +8,10 @@
                 </v-col>
                 <v-col order="first" order-md="last" cols="12" md="6" class="d-flex flex-column justify-center align-center position-relative mt-12 mb-4 my-md-0">
                     <v-img :src="round" :style="roundStyle" class="round" contain></v-img>
-                    <video :style="videoStyle" muted autoplay loop>
+                    <video v-if="supportsTransparentVideo" :style="videoStyle" muted autoplay loop>
                         <source :src="video" type="video/webm">
                     </video>
+                    <img v-else :src="fallbackImg" :style="videoStyle" title="Your browser does not support the <video> tag" />
                 </v-col>
             </v-row>
         </v-container>
@@ -24,6 +25,15 @@ export default  {
     data: () => ({
         round,
         video: '/assets/videos/hero.webm',
+        fallbackImg: '/assets/videos/hero.png',
+        supportsTransparentVideo: ![
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(navigator.platform),
     }),
 
     computed: {
