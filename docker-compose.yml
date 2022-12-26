@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    www:
+        container_name: polymind_www
+        image: node:16
+        user: "node"
+        working_dir: /home/node/app
+        expose:
+            - 9001
+        environment:
+            - NODE_ENV=dev
+        command: [ "yarn", "serve" ]
+        volumes:
+            - .:/home/node/app:rw
+        ports:
+            - "12003:9001"
