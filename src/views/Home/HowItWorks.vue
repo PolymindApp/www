@@ -1,12 +1,10 @@
 <template>
     <v-sheet v-bind="$attrs" v-on="$listeners" :dark="dark">
         <v-container>
-
             <div class="text-center mx-auto position-relative" style="max-width: 50rem; z-index: 2">
-                <h1 :class="{
-                    'text-h4 text-md-h3 font-weight-light': true,
-                    'primary--text': !dark
-                }" v-html="$t('home.voice.title')"></h1>
+                <i18n path="home.howItWorks.title" class="text-h4 text-md-h3 font-weight-light" tag="h1">
+                    <span class="primary--text font-weight-thin" v-text="$t('home.howItWorks.titleSynthhowItWorks')"></span>
+                </i18n>
 
                 <v-btn
                     class="mt-5 mt-md-12 mb-n12 mb-n4"
@@ -29,9 +27,17 @@
             </div>
 
             <div class="mt-6">
-                <div class="text-center text-h5" v-text="$t('home.voice.alsoAvailable')"></div>
-                <div class="d-flex align-center justify-center mt-4 flex-wrap" style="gap: 1rem">
+                <div class="text-center text-h5" v-text="$t('home.howItWorks.alsoAvailable', {
+                    total: allLocales.length
+                })"></div>
+                <div class="d-flex align-center justify-center mt-4 flex-wrap" :style="chipStyle">
                     <v-chip :key="locale.value" v-for="locale in availableLocales" :disabled="playing" v-text="locale.text" @click="() => handleSwitchLanguageClick(locale)"></v-chip>
+                </div>
+                <div class="mt-6 caption text-center text--disabled">
+                    <span v-for="(locale, localeIdx) in allLocales" :key="locale">
+                        <span v-if="localeIdx > 0">, </span>
+                        <span v-text="locale"></span>
+                    </span>
                 </div>
             </div>
         </v-container>
@@ -63,33 +69,28 @@ const Muvis = function (path, options = {}) {
     let bufferSource, analyzer, frequency, fileData;
 
     function loadFile() {
-        console.log('load file');
         const request = new XMLHttpRequest();
         request.open('GET', path, true);
         request.responseType = 'arraybuffer';
         request.onload = fileLoaded;
         request.onerror = fileError;
         request.send();
-        console.log('loaded')
     }
 
     function fileLoaded(e) {
         fileData = e.target.response;
         if (options.onLoad) {
-            console.log('loaded', fileData);
             options.onLoad(fileData);
         }
     }
 
     function fileError() {
-        console.log('error');
         if (options.onError) {
             options.onError('Unable to load file.');
         }
     }
 
     function onAudioDecode(buffer) {
-        console.log('decode')
         bufferSource = context.createBufferSource();
         analyzer = context.createAnalyser();
         frequency = new Uint8Array(analyzer.frequencyBinCount);
@@ -97,7 +98,7 @@ const Muvis = function (path, options = {}) {
         bufferSource.buffer = buffer;
         bufferSource.connect(context.destination);
         bufferSource.connect(analyzer);
-        console.log('buffer');
+
         bufferSource.onended = () => {
             self.stop();
             if (options.onEnded) {
@@ -121,11 +122,9 @@ const Muvis = function (path, options = {}) {
 
     function render() {
         if (self.isPlaying) {
-            console.log('render')
             requestAnimationFrame(render);
             analyzer.getByteFrequencyData(frequency);
             if (options.onData) {
-                console.log('onData')
                 options.onData(frequency.slice(0, dataMax));
             }
         }
@@ -135,11 +134,9 @@ const Muvis = function (path, options = {}) {
         if (!self.isPlaying) {
             self.isPlaying = true;
             if (fileData instanceof ArrayBuffer) {
-                console.log('play1')
                 context.decodeAudioData(fileData, onAudioDecode, onAudioDecodeError);
             }
             if (options.onPlay) {
-                console.log('play2')
                 options.onPlay(this);
             }
         }
@@ -172,12 +169,58 @@ export default Vue.extend({
         divs: null,
         voices: {},
         availableLocales: [],
+        allLocales: [
+            'Arabic',
+            'Arabic (Gulf)',
+            'Catalan',
+            'Chinese (Cantonese)',
+            'Chinese (Mandarin)',
+            'Danish',
+            'Dutch',
+            'English (Australian)',
+            'English (British)',
+            'English (Indian)',
+            'English (New Zealand)',
+            'English (South African)',
+            'English (US)',
+            'English (Welsh)',
+            'Finnish',
+            'French',
+            'French (Canadian)',
+            'Hindi',
+            'German',
+            'German (Austrian)',
+            'Icelandic',
+            'Italian',
+            'Japanese',
+            'Korean',
+            'Norwegian',
+            'Polish',
+            'Portuguese (Brazilian)',
+            'Portuguese (European)',
+            'Romanian',
+            'Russian',
+            'Spanish (European)',
+            'Spanish (Mexican)',
+            'Spanish (US)',
+            'Swedish',
+            'Turkish',
+            'Welsh',
+        ],
         forcedLocale: null,
     }),
 
     computed: {
         btnSize() {
             return this.$vuetify.breakpoint.lgAndUp ? 64 : 48;
+        },
+
+        chipStyle() {
+            return {
+                gap: this.$vuetify.breakpoint.mdAndUp
+                    ? '0.5rem'
+                    : '0.25rem'
+            }
         }
     },
 
@@ -200,7 +243,6 @@ export default Vue.extend({
 
         toggle() {
             if (!this.audio.isPlaying) {
-                console.log('play')
                 this.audio.play();
                 this.playing = true;
             } else {

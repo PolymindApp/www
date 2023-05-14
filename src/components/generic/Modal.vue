@@ -116,11 +116,19 @@ export default {
         hideMobileFocus() {
             return this.$root.inputFocused && this.$vuetify.breakpoint.smAndDown && this.fullscreen;
         },
+        _buttons: {
+            get() {
+                return this.buttons;
+            },
+            set(buttons) {
+                this.$emit('update:buttons', buttons);
+            }
+        }
 	},
 
     created() {
         if (!this.$slots.buttons && this.buttons.length === 0) {
-            this.buttons.push({
+            this._buttons.push({
                 text: this.$i18n.t('btn.close'),
                 attrs: {
                     outlined: true,

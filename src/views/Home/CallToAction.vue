@@ -1,9 +1,14 @@
 <template>
-    <v-sheet v-bind="$attrs" v-on="$listeners">
+    <v-sheet v-bind="$attrs" v-on="$listeners" v-intersect="{
+        handler: onIntersect,
+        options: {
+            threshold: 1
+        }
+    }">
         <v-container class="text-center" style="max-width: 45rem">
             <v-img :src="logo" :height="$vuetify.breakpoint.mdAndUp ? '8rem' : '6rem'" contain></v-img>
             <h2 class="text-h4 text-md-h2 mt-6" v-text="$t('home.callToAction.title')"></h2>
-            <p class="text-md-h6 mt-3" v-text="$t('home.callToAction.body')"></p>
+            <p class="text-md-h6 mt-3 text--secondary mx-auto" style="max-width: 30rem" v-text="$t('home.callToAction.body')"></p>
             <v-btn light rounded x-large :href="clientUrl">
                 <v-icon left>mdi-login-variant</v-icon>
                 <span v-text="$t('home.callToAction.openAccount')"></span>
@@ -28,5 +33,11 @@ export default {
         clientUrl: process.env.VUE_APP_CLIENT_URL,
         githubHref: process.env.VUE_APP_GITHUB_URL,
     }),
+
+    methods: {
+        onIntersect(entries, observer) {
+            this.$root.$emit('toolbarDark', entries[0].isIntersecting)
+        },
+    }
 }
 </script>

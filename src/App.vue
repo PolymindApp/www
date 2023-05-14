@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app v-scroll="onScroll">
         <Snack v-model="$root.snack.visible" v-bind="$root.snack" transition="slide-y-reverse-transition" bottom left />
         <ErrorHandler :value="$root.error" max-width="500" icon="mdi-alert" color="error" dark scrollable :fullscreen="$vuetify.breakpoint.smAndDown" />
         <GlobalModal v-model="$root.modal.visible" v-bind="{ ...$root.modal, ...$root.modal.attrs }" scrollable />
@@ -13,11 +13,12 @@
         <v-expand-transition>
             <Toolbar
                 v-if="showToolbar"
-                color="transparent"
-                class="py-4 px-md-2"
-                absolute
+                :flat="toolbarDark || flat"
+                :dark="toolbarDark"
+                :color="toolbarDark ? 'primary' : 'white'"
+                class="px-md-2"
+                height="80"
                 app
-                flat
                 tile
                 @drawer="drawer = true"
             />
@@ -60,6 +61,8 @@ export default Vue.extend({
         loading: true,
         loaded: false,
         drawer: false,
+        flat: true,
+        toolbarDark: false,
     }),
 
     computed: {
@@ -72,6 +75,9 @@ export default Vue.extend({
     },
 
     methods: {
+        onScroll(event) {
+            this.flat = window.scrollY === 0;
+        },
         load() {
             this.loaded = true;
             // this.loading = true;
@@ -100,6 +106,10 @@ export default Vue.extend({
             next();
         });
         document.title = this.$i18n.t('route.' + this.$route.name);
+
+        this.flat = window.scrollY === 0;
+
+        this.$root.$on('toolbarDark', dark => this.toolbarDark = dark);
     },
 
     destroyed() {

@@ -10,7 +10,6 @@ html, body { overflow-x: hidden; }
     .text-h1,.text-h2,.text-h3,.text-h4,.text-h5,.text-h6,
     .text-md-h1,.text-md-h2,.text-md-h3,.text-md-h4,.text-md-h5,.text-md-h6,
     .title,
-    .v-btn,
     .v-tab {
         font-family: Geomanist !important;
     }
@@ -45,6 +44,23 @@ ul + p {
 ::-moz-selection {
     background: #1B8E8A; /* Gecko Browsers */
     color: white;
+}
+.theme--dark {
+    ::selection {
+        background: white; /* WebKit/Blink Browsers */
+        color: #1B8E8A;
+    }
+    ::-moz-selection {
+        background: white; /* Gecko Browsers */
+        color: #1B8E8A;
+    }
+}
+.v-application {
+    .theme--dark {
+        .text--secondary {
+            color: rgba(255, 255, 255, 0.66) !important;
+        }
+    }
 }
 @media all and (max-width: 767px) {
     .v-tooltip__content {
