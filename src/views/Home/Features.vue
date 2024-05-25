@@ -11,7 +11,7 @@
                     <div style="max-width: 20rem; margin: 0 auto">
                         <IPhone
                             v-model="images"
-                            :index="panel"
+                            :index="0"
                             include-border
                         />
                     </div>
@@ -46,11 +46,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 import { TranslateResult } from "vue-i18n";
 import IPhone from "@/components/IPhone.vue";
-import language from '@/assets/images/schooling/language.jpg';
-import geography from '@/assets/images/schooling/geography.jpg';
-import anatomy from '@/assets/images/schooling/anatomy.jpg';
-import biology from '@/assets/images/schooling/biology.jpg';
-import history from '@/assets/images/schooling/history.jpg';
+import appImage from '@/assets/images/polymind-app.jpg';
 
 interface IFeature {
     image: string,
@@ -72,11 +68,11 @@ export default class Features extends Vue {
 
     get features(): Array<IFeature> {
         return [
-            { image: biology, title: this.$i18n.t('home.features.incrementalLearning.title'), body: this.$i18n.t('home.features.incrementalLearning.body'), },
-            { image: anatomy, title: this.$i18n.t('home.features.dictionaries.title'), body: this.$i18n.t('home.features.dictionaries.body'), },
-            { image: geography, title: this.$i18n.t('home.features.listManagement.title'), body: this.$i18n.t('home.features.listManagement.body'), },
-            { image: language, title: this.$i18n.t('home.features.automaticPlayback.title'), body: this.$i18n.t('home.features.automaticPlayback.body'), },
-            { image: history, title: this.$i18n.t('home.features.multiPlatform.title'), body: this.$i18n.t('home.features.multiPlatform.body'), },
+            { image: appImage, title: this.$i18n.t('home.features.incrementalLearning.title'), body: this.$i18n.t('home.features.incrementalLearning.body'), },
+            { image: appImage, title: this.$i18n.t('home.features.dictionaries.title'), body: this.$i18n.t('home.features.dictionaries.body'), },
+            { image: appImage, title: this.$i18n.t('home.features.listManagement.title'), body: this.$i18n.t('home.features.listManagement.body'), },
+            { image: appImage, title: this.$i18n.t('home.features.automaticPlayback.title'), body: this.$i18n.t('home.features.automaticPlayback.body'), },
+            { image: appImage, title: this.$i18n.t('home.features.multiPlatform.title'), body: this.$i18n.t('home.features.multiPlatform.body'), },
         ];
     }
 

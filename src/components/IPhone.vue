@@ -2,9 +2,9 @@
     <div :class="{
         'iphone': includeBorder
     }">
-        <div class="notch">
-            <div class="inner-notch"></div>
-        </div>
+<!--        <div class="notch">-->
+<!--            <div class="inner-notch"></div>-->
+<!--        </div>-->
         <v-img
             v-if="formattedImages.length <= 1"
             v-bind="$attrs"
