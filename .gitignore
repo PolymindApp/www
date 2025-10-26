@@ -2,6 +2,7 @@
 node_modules
 /dist
 /public/assets
+.yarn
 
 # local env files
 .env

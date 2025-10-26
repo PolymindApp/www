@@ -1,0 +1,44 @@
+name: Deploy PROD to host
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '>=18'
+
+      - name: Defining environment variables
+        run: |
+          echo "VUE_APP_CLIENT_URL=https://client.polymind.app/" > .env
+          echo "VUE_APP_FACEBOOK_URL=https://www.facebook.com/polymindapp" > .env
+          echo "VUE_APP_GITHUB_URL=https://github.com/PolymindApp" > .env
+          echo "VUE_APP_TWITTER_URL=https://twitter.com/polymindapp" > .env
+          echo "VUE_APP_YOUTUBE_URL=https://www.youtube.com/channel/UCX8r3RbWCk9VSWp7EO9zqcA" > .env
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build project
+        run: yarn build-only
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_WWW_PROD_PATH }}
+          protocol: ftps
+
