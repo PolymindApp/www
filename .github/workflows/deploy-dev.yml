@@ -30,7 +30,7 @@ jobs:
         run: yarn
 
       - name: Build project
-        run: yarn build-only
+        run: yarn build
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
